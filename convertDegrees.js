@@ -23,7 +23,7 @@ function DMSToDec(dmsDegrees)
 	var degrees, minutes, seconds;
 	var coordValue;
 
-	var regExp = new RegExp(/[^0-9NSEW.]/gi);
+	var regExp = new RegExp(/[^0-9NSEW.]+/gi);
 	var values = dmsDegrees.trim().replace(regExp, ',')
 	values = values.split(',');
 	if (values.length === 4)
