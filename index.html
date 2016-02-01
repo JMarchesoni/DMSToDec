@@ -5,6 +5,10 @@
 <title>
 	Latitude/Longitude Degree/Minute/Second &lt;==&gt; Converter
 </title>
+<style>
+.tablediv {display: inline; float: left;}
+#dec2dms, #dms2dec {height: 2em}
+</style>
 </head>
 <body>
   
@@ -17,22 +21,42 @@
   </section>
   
   </section class="tool">
-    <form name="convert" id="formConvert">
-      <div id="DMS" class="tablediv">
-        <label for="LatitudeDMS">Latitude (DMS)</label>
-        <input type="text" id="LatitudeDMS" name="LatitudeDMS" /><br />
-        <label for="LongitudeDMS" />Longitude (DMS)</label>
-        <input type="text" id="LongitudeDMS"  name="LongitudeDMS" />
-      </div>
-      <div id="Dec" class="tablediv">
-        <label for="LatitudeDec">Latitude (DMS)</label>
-        <input type="text" id="LatitudeDec" name="LatitudeDec" /><br />
-        <label for="LongitudeDec" />Longitude (DMS)</label>
-        <input type="text" id="LongitudeDec"  name="LongitudeDec" />
-      </div>
-    </form>
+		<div id="DMS" class="tablediv">
+			<label for="LatitudeDMS">Latitude (DMS)</label>
+			<input type="text" id="LatitudeDMS" name="LatitudeDMS" /><br />
+			<label for="LongitudeDMS" />Longitude (DMS)</label>
+			<input type="text" id="LongitudeDMS" name="LongitudeDMS" />
+		</div>
+		<div class="tablediv">
+			<button id="dec2dms">&lt;</button>
+		</div>
+		<div class="tablediv">
+			<button id="dms2dec">&gt;</button>
+		</div>
+		<div id="Dec" class="tablediv">
+			<label for="LatitudeDec">Latitude (Dec)</label>
+			<input type="text" id="LatitudeDec" name="LatitudeDec" /><br />
+			<label for="LongitudeDec" />Longitude (Dec)</label>
+			<input type="text" id="LongitudeDec" name="LongitudeDec" />
+		</div>
   </section>
   
   <script src="convertDegrees.js"></script>
+	<script>
+		document.getElementById("dec2dms").addEventListener("click", wireUp_dec2dms);
+
+		document.getElementById("dms2dec").addEventListener("click", wireUp_dms2dec);
+
+		function wireUp_dec2dms()
+		{
+
+		}
+
+		function wireUp_dms2dec()
+		{
+			document.getElementById("LatitudeDec").value = DMSToDec(document.getElementById("LatitudeDMS").value);
+			document.getElementById("LongitudeDec").value = DMSToDec(document.getElementById("LongitudeDMS").value);
+		}
+	</script>
 </body>
 </html>
